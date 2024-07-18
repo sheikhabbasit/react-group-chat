@@ -1,7 +1,7 @@
-const App = () => {
-  return (
-    <div className=''>App</div>
-  )
-}
+import Box from "@mui/material/Box";
 
-export default App
+const App = () => {
+  return <Box className="">App</Box>;
+};
+
+export default App;
