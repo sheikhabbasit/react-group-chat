@@ -11,7 +11,7 @@ export const defaultTheme = {
       main: "#FF0040",
     },
     background: {
-      default: "#FFFFFF",
+      default: "#abcdef",
     },
     text: {
       main: "#111111",
@@ -20,6 +20,7 @@ export const defaultTheme = {
   },
   typography: {
     fontFamily: "Roboto",
+    color: "#fff",
     h1: {
       fontSize: 54,
       lineHeight: 74 / 34,
