@@ -7,6 +7,7 @@ export const useAppStyles = () => {
       width: "90vw",
       margin: "5vh auto auto",
       borderRadius: "12px",
+      display: "flex",
     },
   };
   return styles;
