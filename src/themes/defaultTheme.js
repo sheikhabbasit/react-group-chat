@@ -11,7 +11,7 @@ export const defaultTheme = {
       main: "#FF0040",
     },
     background: {
-      default: "#abcdef",
+      default: "#fff",
     },
     text: {
       main: "#111111",

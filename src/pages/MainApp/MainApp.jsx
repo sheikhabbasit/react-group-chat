@@ -3,14 +3,19 @@ import Chat from "../../components/Chat/Chat";
 import Detail from "../../components/Detail/Detail";
 import List from "../../components/List/List";
 import { useAppStyles } from "../../styles/useAppStyles";
+import { useCommonStyles } from "../../styles/useCommonStyles";
 
 function MainApp() {
   const appStyles = useAppStyles();
+  const commonStyles = useCommonStyles();
+
   return (
-    <Box sx={appStyles.appContainer}>
-      <List />
-      <Chat />
-      <Detail />
+    <Box sx={commonStyles.fullyCentered}>
+      <Box sx={appStyles.appContainer}>
+        <List />
+        <Chat />
+        <Detail />
+      </Box>
     </Box>
   );
 }
