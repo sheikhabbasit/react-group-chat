@@ -1,17 +1,29 @@
 import React from "react";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
 import { useLoginStyles } from "./useLoginStyles";
 import { useLoginController } from "./Login.controller";
 
 function Login() {
   const styles = useLoginStyles();
-  const { handleSubmit } = useLoginController();
+  const {
+    handleLoginSubmit,
+    handleRegisterSubmit,
+    registrationLoading,
+    isLoggingIn,
+  } = useLoginController();
+
   return (
     <Box sx={styles.mainContainer}>
       <Box sx={styles.loginContainer}>
         <Box sx={styles.formContainer}>
           <Typography variant="h3">Login</Typography>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleLoginSubmit}>
             <TextField
               sx={styles.input}
               label="Email"
@@ -28,7 +40,11 @@ function Login() {
             />
             <Box sx={styles.buttonContainer}>
               <Button type="submit" variant="contained" sx={styles.button}>
-                Login
+                {isLoggingIn ? (
+                  <CircularProgress color="secondary" size={"16px"} />
+                ) : (
+                  "Login"
+                )}
               </Button>
             </Box>
           </form>
@@ -37,7 +53,7 @@ function Login() {
       <Box sx={styles.separator} />
       <Box sx={styles.signupContainer}>
         <Typography variant="h3">Register</Typography>
-        <form>
+        <form onSubmit={handleRegisterSubmit}>
           <TextField
             sx={styles.input}
             label="Username"
@@ -60,8 +76,17 @@ function Login() {
             name="password"
           />
           <Box sx={styles.buttonContainer}>
-            <Button variant="contained" sx={styles.button}>
-              Register
+            <Button
+              type="submit"
+              variant="contained"
+              sx={styles.button}
+              disabled={registrationLoading}
+            >
+              {registrationLoading ? (
+                <CircularProgress color="secondary" size={"16px"} />
+              ) : (
+                "Register"
+              )}
             </Button>
           </Box>
         </form>

@@ -9,6 +9,13 @@ export const useAppStyles = () => {
       borderRadius: "12px",
       display: "flex",
     },
+    loaderContainer: {
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+    },
   };
   return styles;
 };
