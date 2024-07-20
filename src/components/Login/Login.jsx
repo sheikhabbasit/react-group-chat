@@ -1,15 +1,17 @@
 import React from "react";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useLoginStyles } from "./useLoginStyles";
+import { useLoginController } from "./Login.controller";
 
 function Login() {
   const styles = useLoginStyles();
+  const { handleSubmit } = useLoginController();
   return (
     <Box sx={styles.mainContainer}>
       <Box sx={styles.loginContainer}>
         <Box sx={styles.formContainer}>
           <Typography variant="h3">Login</Typography>
-          <form>
+          <form onSubmit={handleSubmit}>
             <TextField
               sx={styles.input}
               label="Email"
@@ -25,7 +27,7 @@ function Login() {
               name="password"
             />
             <Box sx={styles.buttonContainer}>
-              <Button variant="contained" sx={styles.button}>
+              <Button type="submit" variant="contained" sx={styles.button}>
                 Login
               </Button>
             </Box>

@@ -1,3 +1,9 @@
+import { toast } from "react-toastify";
+
 export const useLoginController = () => {
-  return {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast.success("Login Successful");
+  };
+  return { handleSubmit };
 };

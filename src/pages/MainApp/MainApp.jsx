@@ -4,6 +4,7 @@ import List from "../../components/List/List";
 import { useAppStyles } from "../../styles/useAppStyles";
 import { useCommonStyles } from "../../styles/useCommonStyles";
 import Login from "../../components/Login/Login";
+import Notifications from "../../components/Notifications/Notifications";
 
 function MainApp() {
   const appStyles = useAppStyles();
@@ -22,6 +23,7 @@ function MainApp() {
           <Login />
         )}
       </Box>
+      <Notifications />
     </Box>
   );
 }
