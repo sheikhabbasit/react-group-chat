@@ -2,7 +2,6 @@ import { useTheme } from "@mui/material";
 
 export const useListStyles = () => {
   const theme = useTheme();
-  console.log(theme.palette);
   const styles = {
     listContainer: {
       flex: 0.5,

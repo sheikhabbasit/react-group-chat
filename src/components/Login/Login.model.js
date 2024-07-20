@@ -32,7 +32,6 @@ export const useLoginModel = () => {
     try {
       if (!email || !password) return toast.error("Please fill all fields");
       const res = await signInWithEmailAndPassword(auth, email, password);
-      console.log(res);
       toast.success("Login Successful");
     } catch (e) {
       toast.error(e || "Login Failed");
