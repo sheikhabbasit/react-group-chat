@@ -1,16 +1,29 @@
 import { Box } from "@mui/material";
 import Chat from "../../components/Chat/Chat";
-import Detail from "../../components/Detail/Detail";
 import List from "../../components/List/List";
 import { useAppStyles } from "../../styles/useAppStyles";
+import { useCommonStyles } from "../../styles/useCommonStyles";
+import Login from "../../components/Login/Login";
+import Notifications from "../../components/Notifications/Notifications";
 
 function MainApp() {
   const appStyles = useAppStyles();
+  const commonStyles = useCommonStyles();
+  const user = false;
+
   return (
-    <Box sx={appStyles.appContainer}>
-      <List />
-      <Chat />
-      <Detail />
+    <Box sx={commonStyles.fullyCentered}>
+      <Box sx={appStyles.appContainer}>
+        {user ? (
+          <>
+            <List />
+            <Chat />
+          </>
+        ) : (
+          <Login />
+        )}
+      </Box>
+      <Notifications />
     </Box>
   );
 }

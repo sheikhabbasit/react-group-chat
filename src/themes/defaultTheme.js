@@ -2,20 +2,21 @@
 export const defaultTheme = {
   palette: {
     primary: {
-      main: "#c5001a",
+      main: "#708871",
     },
     secondary: {
-      main: "#FD2B88",
+      main: "#BEC6A0",
     },
     error: {
       main: "#FF0040",
     },
     background: {
-      default: "#abcdef",
+      default: "#FEF3E2",
     },
     text: {
       main: "#111111",
       white: "#EEEEEE",
+      dark: "#508C9B",
     },
   },
   typography: {
