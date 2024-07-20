@@ -1,9 +1,33 @@
-import { toast } from "react-toastify";
+import { useLoginModel } from "./Login.model";
+import { useState } from "react";
 
 export const useLoginController = () => {
-  const handleSubmit = (e) => {
+  const { handleRegistration, handleLogin } = useLoginModel();
+  const [registrationLoading, setRegistrationLoading] = useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
+
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    toast.success("Login Successful");
+    setIsLoggingIn(true);
+    const formData = new FormData(e.target);
+    const { email, password } = Object.fromEntries(formData);
+    await handleLogin({ email, password });
+    setIsLoggingIn(false);
   };
-  return { handleSubmit };
+
+  const handleRegisterSubmit = async (e) => {
+    e.preventDefault();
+    setRegistrationLoading(true);
+    const formData = new FormData(e.target);
+    const { username, email, password } = Object.fromEntries(formData);
+    await handleRegistration({ username, email, password });
+    setRegistrationLoading(false);
+  };
+
+  return {
+    handleLoginSubmit,
+    handleRegisterSubmit,
+    registrationLoading,
+    isLoggingIn,
+  };
 };
