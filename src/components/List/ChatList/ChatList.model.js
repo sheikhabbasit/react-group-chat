@@ -1,11 +1,4 @@
-import {
-  collection,
-  doc,
-  getDoc,
-  serverTimestamp,
-  setDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../lib/firebase";
 import { useUserStore } from "../../../lib/zustandStore";
 import { useChatStore } from "../../../lib/chatStore";
@@ -23,7 +16,6 @@ export const useChatListModel = () => {
       activeChatId(currentUser.id);
       return true;
     } catch (e) {
-      console.log("err", e);
       return false;
     }
   };

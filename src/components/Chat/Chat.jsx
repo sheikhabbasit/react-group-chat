@@ -1,7 +1,9 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import { useChatStyles } from "./useChatStyles";
 import { useChatController } from "./Chat.controller";
-import { useState } from "react";
 
 function Chat() {
   const {

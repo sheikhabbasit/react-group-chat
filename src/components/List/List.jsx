@@ -1,8 +1,9 @@
 import React from "react";
-import { useListStyles } from "./useListStyles";
-import { Box, Button } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import UserInfo from "./UserInfo/UserInfo";
 import ChatList from "./ChatList/ChatList";
+import { useListStyles } from "./useListStyles";
 import { useListController } from "./List.controller";
 
 function List() {

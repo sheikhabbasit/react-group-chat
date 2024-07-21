@@ -5,7 +5,6 @@ export const useListStyles = () => {
   const styles = {
     listContainer: {
       flex: 0.5,
-      // borderRight: `1px solid ${theme.palette.background.default}`,
     },
     logoutContainer: {
       width: "92%",
