@@ -4,60 +4,68 @@ import { useChatController } from "./Chat.controller";
 import { useState } from "react";
 
 function Chat() {
-  const { handleMessageSend, messageInput, setMessageInput, endRef } =
-    useChatController();
+  const {
+    handleMessageSend,
+    messageInput,
+    setMessageInput,
+    endRef,
+    chatId,
+    chats,
+    currentUser,
+  } = useChatController();
   const chatStyles = useChatStyles();
-  const [isOwnMessage] = useState(false);
 
   return (
     <Box sx={chatStyles.chatContainer}>
       <Box sx={chatStyles.heading}>
-        <Typography variant="h4">Group Chat ID</Typography>
+        <Typography variant="h4">
+          {chatId ? `Group Chat ID: ${chatId}` : "No chat selected"}
+        </Typography>
       </Box>
       <Box sx={chatStyles.messages}>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 3, 3, 3, 3, 3].map((item, index) => {
-          return (
-            <Box
-              key={index}
-              sx={[
-                chatStyles.message,
-                isOwnMessage ? chatStyles.ownMessage : {},
-              ]}
-            >
-              {!isOwnMessage && (
-                <img
-                  src={"./avatar.png"}
-                  alt="avatar"
-                  style={chatStyles.senderAvatar}
-                />
-              )}
-              <Box sx={chatStyles.messageDetails}>
-                {!isOwnMessage && (
-                  <Typography variant="c2" sx={chatStyles.senderName}>
-                    Sender Name
-                  </Typography>
+        {chatId ? (
+          chats.map((item) => {
+            return (
+              <Box
+                key={item.createdAt}
+                sx={[
+                  chatStyles.message,
+                  currentUser.id === item.senderId ? chatStyles.ownMessage : {},
+                ]}
+              >
+                {currentUser.id !== item.senderId && (
+                  <img
+                    src={"./avatar.png"}
+                    alt="avatar"
+                    style={chatStyles.senderAvatar}
+                  />
                 )}
-                <Box sx={chatStyles.messageAndTimestampContainer}>
-                  <Typography variant="p1" sx={chatStyles.messageText}>
-                    Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
-                    Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
-                    Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
-                    Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
-                    Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
-                    Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
-                    Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
-                    Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
-                    Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
-                    Hello Hello Hello Hello Hello Hello
-                  </Typography>
-                  <Typography variant="c2" sx={chatStyles.timeStamp}>
-                    Wed 19:01
-                  </Typography>
+                <Box sx={chatStyles.messageDetails}>
+                  {currentUser.id !== item.senderId && (
+                    <Typography variant="c2" sx={chatStyles.senderName}>
+                      {item.senderName}
+                    </Typography>
+                  )}
+                  <Box sx={chatStyles.messageAndTimestampContainer}>
+                    <Typography variant="p1" sx={chatStyles.messageText}>
+                      {item.message}
+                    </Typography>
+                    <Typography variant="c2" sx={chatStyles.timeStamp}>
+                      {item.creaatedAt}
+                    </Typography>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
-          );
-        })}
+            );
+          })
+        ) : (
+          <Box sx={chatStyles.emptyPlaceholder}>
+            <Typography variant="h4" align="center">
+              Create a Room <br /> <span style={{ fontSize: "16px" }}>Or</span>{" "}
+              <br /> Join a room chat first
+            </Typography>
+          </Box>
+        )}
         <Box ref={endRef}></Box>
       </Box>
       <Box sx={chatStyles.messageBox}>
