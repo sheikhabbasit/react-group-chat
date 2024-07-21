@@ -20,7 +20,7 @@ export const defaultTheme = {
     },
   },
   typography: {
-    fontFamily: "Roboto",
+    fontFamily: "PLusJakartaSans",
     color: "#fff",
     h1: {
       fontSize: 54,

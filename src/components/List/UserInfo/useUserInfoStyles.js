@@ -11,11 +11,15 @@ export const useUserInfoStyles = () => {
       alignItems: "center",
       gap: "20px",
     },
-    img: {
+    avatar: {
       width: "50px",
       height: "50px",
       borderRadius: "50%",
-      objectFit: "cover",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "black",
+      color: "white",
     },
   };
   return styles;

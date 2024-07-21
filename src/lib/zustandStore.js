@@ -16,8 +16,8 @@ export const useUserStore = create((set) => ({
         return set({ currentUser: null, isLoading: false });
       }
     } catch (e) {
-      console.log(e);
       return set({ currentUser: null, isLoading: false });
     }
   },
+  clear: () => set({ currentUser: null, isLoading: false }),
 }));

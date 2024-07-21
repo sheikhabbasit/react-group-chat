@@ -1,11 +1,9 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  TextField,
-  Typography,
-  CircularProgress,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import CircularProgress from "@mui/material/CircularProgress";
 import { useLoginStyles } from "./useLoginStyles";
 import { useLoginController } from "./Login.controller";
 

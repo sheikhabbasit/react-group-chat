@@ -1,11 +1,13 @@
-import { Box, CircularProgress, Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
 import Chat from "../../components/Chat/Chat";
 import List from "../../components/List/List";
-import { useAppStyles } from "../../styles/useAppStyles";
-import { useCommonStyles } from "../../styles/useCommonStyles";
 import Login from "../../components/Login/Login";
 import Notifications from "../../components/Notifications/Notifications";
 import { useMainAppController } from "./MainApp.controller";
+import { useAppStyles } from "../../styles/useAppStyles";
+import { useCommonStyles } from "../../styles/useCommonStyles";
 
 function MainApp() {
   const appStyles = useAppStyles();

@@ -76,6 +76,15 @@ export const useChatStyles = () => {
     button: {
       width: "8%",
     },
+    emptyPlaceholder: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "500px",
+      width: "100%",
+      paddingTop: "100px",
+      color: theme.palette.text.dark,
+    },
   };
   return styles;
 };
