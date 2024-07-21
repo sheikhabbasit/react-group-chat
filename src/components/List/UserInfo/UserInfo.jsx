@@ -1,13 +1,19 @@
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 import { useUserInfoStyles } from "./useUserInfoStyles";
+import { useUserInfoController } from "./UserInfo.controller";
 
 function UserInfo() {
   const userInfoStyles = useUserInfoStyles();
+  const { name } = useUserInfoController();
+
   return (
     <Box sx={userInfoStyles.userInfo}>
       <Box sx={userInfoStyles.user}>
-        <img style={userInfoStyles.img} src={"./avatar.png"} alt="avatar" />
-        <h2>John Doe</h2>
+        <Box sx={userInfoStyles.avatar}>
+          <Typography variant="h4">{name.slice(0, 1)}</Typography>
+        </Box>
+        <Typography variant="h2">{name}</Typography>
       </Box>
     </Box>
   );
